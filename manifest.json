@@ -1,0 +1,35 @@
+{
+  "name": "DID Extension Demo",
+  "version": "1.0",
+  "description": "Build an Extension for Did.",
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "storage",
+    "tabs",
+    "<all_urls>",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/did_16.png",
+      "32": "images/did_32.png",
+      "48": "images/did_48.png",
+      "128": "images/did_128.png"
+    },
+    "default_title": "This is a demo for Did extension",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/did_16.png",
+    "32": "images/did_32.png",
+    "48": "images/did_48.png",
+    "128": "images/did_128.png"
+  },
+  "manifest_version": 2
+}
