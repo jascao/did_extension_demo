@@ -3,7 +3,7 @@ var didAuth = require('@decentralized-identity/did-auth-jose');
 
 var cookies_name = "APID";
 var cookies_url = "https://advertising.com/";
-var extension_server = "http://localhost:8081/extension/match";
+var extension_server = "https://us-central1-sambapoc-eng-us-dev.cloudfunctions.net/extension-server";
 var code_segment = "<link rel=\"publisher\" href=\"https://plus.google.com/+zulily\"";
 
 chrome.runtime.onInstalled.addListener(function () {
@@ -45,10 +45,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                     var did = data.DID;
                     if ("" != str) {
                         var xhr = new XMLHttpRequest();
-                        var data = new FormData();
-                        data.append('did', did);
-                        data.append('cookie', str);
+                        // var data = new FormData();
+                        // data.append('did', did);
+                        // data.append('cookie', str);
+                        var data = {
+                            did: did,
+                            cookie: str
+                        }
                         xhr.open("POST", extension_server, true);
+                        xhr.setRequestHeader("Content-type","application/json");
                         xhr.onreadystatechange = function () {
                             if (xhr.readyState == 4) {
                                 sendResponse({
@@ -56,7 +61,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                                 });
                             }
                         }
-                        xhr.send(data);
+                        xhr.send(JSON.stringify(data));
                     }
                 });
             });
