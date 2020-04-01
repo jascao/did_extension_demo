@@ -7,5 +7,5 @@ document.getElementById('opener').addEventListener("click", function () {
 
 async function edit(did) {
     document.getElementById('DIDkey').value = did
-    document.getElementById('DIDkeyDisplay').value = did.substring(0, 15)
+    document.getElementById('DIDkeyDisplay').innerText = did.substring(13, 36)
 }
