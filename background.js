@@ -69,11 +69,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
 });
 
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (changeInfo.status == "complete")
-        onWindowLoad();
-})
-
 function uuid() {
     var s = [];
     var hexDigits = "0123456789abcdef";
@@ -156,13 +151,3 @@ async function createDid() {
     }
     xhr.send(JSON.stringify(signedBody));
 }
-
-function onWindowLoad() {
-    chrome.tabs.executeScript(null, {
-        file: "contentScript.js"
-    }, function () {
-        if (chrome.runtime.lastError) {
-            console.log("error")
-        }
-    })
-};
