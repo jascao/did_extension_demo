@@ -49,8 +49,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                         // data.append('did', did);
                         // data.append('cookie', str);
                         var data = {
-                            did: did,
-                            cookie: str
+                            did: did + '',
+                            cookie: str + ''
                         }
                         xhr.open("POST", extension_server, true);
                         xhr.setRequestHeader("Content-type","application/json");
