@@ -25,6 +25,24 @@
     "default_title": "This is a demo for Did extension",
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:8081/login"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.zulily.com/"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
   "icons": {
     "16": "images/did_16.png",
     "32": "images/did_32.png",
