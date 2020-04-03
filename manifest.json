@@ -28,7 +28,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://35.224.160.51:8081/login"
+        "http://*/*",
+        "https://*/*"
       ],
       "js": [
         "content-script.js"
